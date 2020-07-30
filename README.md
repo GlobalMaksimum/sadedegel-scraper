@@ -1,3 +1,4 @@
+<a href="http://sadedegel.ai"><img src="https://sadedegel.ai/dist/img/logo-2.png?s=280&v=4" width="125" height="125" align="right" /></a>
 
 # SadedeGel Scraper  
 This web scraper is developed to meet the data requirements of [SadedeGel](https://github.com/GlobalMaksimum/sadedegel) library. It scrapes data from news websites and stores them as .txt files.  
