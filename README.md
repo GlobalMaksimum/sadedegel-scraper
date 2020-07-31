@@ -27,28 +27,36 @@ The SadedeGel project is maintained by [@globalmaksmum](https://github.com/Globa
 * Gets article urls of each author  
 * Scrapes data from the article and write to a .txt file  
   
-## Install  
-    git clone https://github.com/GlobalMaksimum/sadedegel-scraper.git 
-    cd sadedegel-chrome-extension 
-    sbt assembly  
-You will get the jar under ./target/scala-<version>/
+## Install Scraper
+You need [sbt](https://www.scala-sbt.org/1.x/docs/Setup.html) to build the project.
+
+```bash
+$ git clone https://github.com/GlobalMaksimum/sadedegel-scraper.git 
+$ cd sadedegel-scraper
+$ sbt assembly  
+```
+
+You will get the jar under ./target/scala-[version]/
   
-## Example Run  
-    nohup java -jar sadedegel-scraper-assembly-0.3.jar "hurriyet" > hurriyet.out &
-Check for hurriyet-<dd-MM-yyyy> directory for .txt files.  
+## Example Run
+```bash
+$ nohup java -jar sadedegel-scraper-assembly-0.3.jar "hurriyet" > hurriyet.out &
+```
+
+Check for hurriyet-[dd-MM-yyyy] directory for .txt files.  
       
 ## For Developers  
 You can add support for additional news sources by extending <b>NewsWebsite</b> Trait.
 
 Example:
-```
+```scala
 import com.sadedegel.ScraperUtils.getArticles
 
 class HurriyetScraper extends NewsWebsite {
   val domain = "https://www.hurriyet.com.tr"
   val authorsUrl = "https://www.hurriyet.com.tr/yazarlar/tum-yazarlar/#hurriyetcomtr"
   override def getAuthorUrls(): List[String] = {
-    List("https://www.hurriyet.com.tr/yazarlar/ilber-ortayli/",
+    List("https://www.hurriyet.com.tr/yazarlar/ilber-ortayli/"
     )
   }
   override def getArticlesOfAuthors(authorUrls: List[String], domain: String): Unit = {
